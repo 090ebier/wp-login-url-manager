@@ -15,12 +15,21 @@ Run the following command to append the script to the end of your `functions.php
 ```bash
 bash wp-login-url-manager.sh /path/to/your/theme/functions.php add
 ```
+OR
+```bash
+bash <(curl -s https://raw.githubusercontent.com/090ebier/wp-login-url-manager/refs/heads/main/wp-login-url-manager.sh) /path/to/your/theme/functions.php add
+```
+
 If the script already exists, it will not be added again.  
 
 ### 2. Removing the Script from `functions.php`  
 To remove the script, use:  
 ```bash
 bash wp-login-url-manager.sh /path/to/your/theme/functions.php del
+```
+OR
+```bash
+bash <(curl -s https://raw.githubusercontent.com/090ebier/wp-login-url-manager/refs/heads/main/wp-login-url-manager.sh) /path/to/your/theme/functions.php del
 ```
 If the script is not found, an error message will be displayed.  
 

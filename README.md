@@ -53,6 +53,8 @@ https://yourdomain.com/?find_login_url=1
 2. Open the `functions.php` file of your theme.  
 3. Use the bash commands to add or remove the script.  
 
+![](https://github.com/090ebier/wp-login-url-manager/blob/main/screenshot.png)
+
 ## License  
 This project is licensed under the **MIT License**.  
 

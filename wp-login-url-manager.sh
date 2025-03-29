@@ -80,9 +80,16 @@ function find_login_url_professionally() {
     $htaccess_path = ABSPATH . '.htaccess';
     if (file_exists($htaccess_path)) {
         $htaccess_content = file_get_contents($htaccess_path);
-        if (preg_match_all('/RewriteRule\s+\^([\w-]+)\$\s+\/wp-login.php/im', $htaccess_content, $matches)) {
-            foreach ($matches[1] as $match) {
-                $login_urls[] = ['source' => '.htaccess Redirect', 'login_url' => home_url("/" . esc_attr($match)), 'status' => 'Active'];
+        if (preg_match_all('/RewriteRule\s+\^([\w-]+)\$\s+(\/[\w\/.-]+|\S+\.php|\S+)/im', $htaccess_content, $matches)) {
+            foreach ($matches[1] as $index => $match) {
+                // مسیر مقصد ریدایرکت را می‌گیریم
+                $redirect_target = $matches[2][$index];
+                $login_urls[] = [
+                    'source' => '.htaccess Redirect',
+                    'login_url' => home_url("/" . esc_attr($match)),
+                    'redirect_to' => esc_url($redirect_target),
+                    'status' => 'Active'
+                ];
             }
         }
     }
